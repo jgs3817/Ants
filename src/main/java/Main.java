@@ -21,11 +21,11 @@ public class Main {
         try {
             Connection conn = DriverManager.getConnection(dbUrl);
             Statement s = conn.createStatement();
-            String sqlStr = "SELECT * FROM Ants;";
+            String sqlStr = "SELECT * FROM Ant;";
             rset = s.executeQuery(sqlStr);
 
             while(rset.next()){
-                System.out.println(rset.getInt("id") + " " +  rset.getString("familyname"));
+                System.out.println(rset.getInt("ant_id") + " " +  rset.getString("video_id"));
             }
 
             rset.close();
