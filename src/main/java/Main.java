@@ -1,12 +1,41 @@
 import javax.swing.*;
 import java.awt.*;
+import java.net.URISyntaxException;
+import java.sql.*;
 
 public class Main {
     static GraphicsConfiguration gc; // Class field containing config info
 
     public static void main(String[] args) {
 
-        ConnectToDB conn = new ConnectToDB();
+        String dbUrl = System.getenv("JDBC_DATABASE_URL");
+
+        ResultSet rset = null;
+
+        try{
+            Class.forName("org.postgresql.Driver");
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+        try {
+            Connection conn = DriverManager.getConnection(dbUrl);
+            Statement s = conn.createStatement();
+            String sqlStr = "SELECT * FROM Ants;";
+            rset = s.executeQuery(sqlStr);
+
+            while(rset.next()){
+                System.out.println(rset.getInt("id") + " " +  rset.getString("familyname"));
+            }
+
+            rset.close();
+            s.close();
+            conn.close();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
 
         JFrame frame = new JFrame(gc); // Create a new JFrame
         frame.setSize(500, 300);
