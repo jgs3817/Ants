@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
 
-        new ConnectToDB();
+        ConnectToDB conn = new ConnectToDB();
 
         JFrame frame = new JFrame(gc); // Create a new JFrame
         frame.setSize(500, 300);

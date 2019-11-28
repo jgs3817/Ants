@@ -33,11 +33,6 @@ public class ConnectToDB {
         } catch (SQLException | URISyntaxException e) {
             e.printStackTrace();
         }
-
-
-
-
-
     }
 
     private static Connection getConnection() throws URISyntaxException, SQLException {
