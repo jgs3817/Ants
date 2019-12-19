@@ -178,7 +178,7 @@ public class TalkServlet {
                 //System.out.println(landingData.getAntData());
                 //System.out.println("Video ID:");
                 //System.out.println(landingData.getVideoID());
-                System.out.println("Frame ID doPost:" + landingData.getFrameID());
+                //System.out.println("Frame ID doPost:" + landingData.getFrameID());
                 //System.out.println("Image Byte:");
                 //System.out.println(landingData.getImageByte());
                 //System.out.println("Overlay Ant Data");
