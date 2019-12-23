@@ -1,32 +1,47 @@
-import javax.swing.*;
+import panels.*;
+
 import java.awt.*;
 
+/*
+The Main class is used to create a JFrame which has the main container
+for holding the panels.ButtonIDContainer and panels.VideoFramesContainer
+*/
+
 public class Main {
-    static GraphicsConfiguration gc; // Class field containing config info
+    static GraphicsConfiguration gc;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame(gc); // Create a new JFrame
-        frame.setSize(500, 300);
-        JPanel mainContainer = new JPanel();
+        PageHandler pageHandler = new PageHandler();
+        pageHandler.add(new UserPage());
+        pageHandler.revalidate();
+        pageHandler.repaint();
 
-        mainContainer.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weightx=1;
-        c.weighty=1;
-        mainContainer.add(new ButtonIDContainer(),c);
+        while(pageHandler.isActive()){
+            boolean flag1 = UserPage.getUserFlag();
+            boolean flag2 = LandingPage.getLandingFlag();
+            boolean flag3 = ButtonPanel.getBackFlag();
 
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 0;
-        c.weightx=5;
-        c.weighty=1;
-        mainContainer.add(new VideoFramesContainer(),c);
-
-        frame.add(mainContainer);
-        frame.setVisible(true);
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+            if(flag1){
+                pageHandler.getContentPane().removeAll();
+                pageHandler.add(new LandingPage());
+                pageHandler.revalidate();
+                pageHandler.repaint();
+                UserPage.setUserFlag(false);
+            }
+            else if(flag2){
+                pageHandler.getContentPane().removeAll();
+                pageHandler.add(new TrackingPage());
+                pageHandler.revalidate();
+                pageHandler.repaint();
+                LandingPage.setLandingFlag(false);
+            }
+            else if(flag3){
+                pageHandler.getContentPane().removeAll();
+                pageHandler.add(new LandingPage());
+                pageHandler.revalidate();
+                pageHandler.repaint();
+                ButtonPanel.setBackFlag(false);
+            }
+        }
     }
 }
