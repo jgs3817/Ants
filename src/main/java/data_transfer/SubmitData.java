@@ -1,4 +1,6 @@
 package data_transfer;
+import panels.FBPanel;
+import panels.MenuVideo;
 import panels.VideoPanel;
 
 import java.io.Serializable;
@@ -20,9 +22,7 @@ public class SubmitData implements Serializable {
 
     public void getData() {
         antData = VideoPanel.getAntData();       //gets the ArrayList antData from panels.VideoPanel
-        //videoID = "Video Submit Data1";
-        //frameID = 10;
-        //videoID = videoIDReturn();
-        //frameID = frameIDReturn();
+        videoID = MenuVideo.getVidID();
+        frameID = FBPanel.getFrameID();
     }
 }

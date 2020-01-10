@@ -49,6 +49,8 @@ public class TalkServlet {
         HttpURLConnection conn = null;
         try{
             URL myURL = new URL("http://localhost:8080/AntsServlet/submitpage");
+            //URL myURL = new URL("http://servletants.herokuapp.com/submitpage");
+
             conn = null;
             conn = (HttpURLConnection) myURL.openConnection();
             conn.setRequestMethod("POST");
@@ -178,7 +180,7 @@ public class TalkServlet {
                 //System.out.println(landingData.getAntData());
                 //System.out.println("Video ID:");
                 //System.out.println(landingData.getVideoID());
-                System.out.println("Frame ID doPost:" + landingData.getFrameID());
+                //System.out.println("Frame ID doPost:" + landingData.getFrameID());
                 //System.out.println("Image Byte:");
                 //System.out.println(landingData.getImageByte());
                 //System.out.println("Overlay Ant Data");
