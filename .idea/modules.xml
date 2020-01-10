@@ -5,6 +5,8 @@
       <module fileurl="file://$PROJECT_DIR$/.idea/Ants.iml" filepath="$PROJECT_DIR$/.idea/Ants.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ants.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Ants.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ants.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Ants.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ants_josh_master.Ants.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Ants_josh_master.Ants.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Ants_josh_master.Ants.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Ants_josh_master.Ants.test.iml" />
     </modules>
   </component>
 </project>

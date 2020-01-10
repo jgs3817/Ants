@@ -75,6 +75,19 @@ public class username extends JFrame
         setSize(500,300);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
+<<<<<<< Updated upstream:src/main/java/username.java
+=======
+        // add action to button
+        startButton.addActionListener(whatsmyname); // username will be
+        startButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                userpageFlag=true;
+                TalkServlet.postInit();
+            }
+        });
+
+>>>>>>> Stashed changes:src/main/java/panels/UserPage.java
     }
 
     public static String nameReturn(){
