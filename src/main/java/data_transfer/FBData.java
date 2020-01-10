@@ -3,7 +3,7 @@ package data_transfer;
 import java.util.ArrayList;
 
 public class FBData {
-    private ArrayList<ArrayList<Integer>> overlayAntData;
+    private static ArrayList<ArrayList<Integer>> overlayAntData;
     private String videoID;
     private static int tempFrameID;
     private int frameID;
@@ -17,7 +17,7 @@ public class FBData {
         tempFrameID = 1;
     }
 
-    public ArrayList<ArrayList<Integer>> getOverlayAntDataAntData() {
+    public static ArrayList<ArrayList<Integer>> getOverlayAntData() {
         return overlayAntData;
     }
 

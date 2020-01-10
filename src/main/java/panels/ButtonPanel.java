@@ -1,9 +1,14 @@
 package panels;
 
+import data_transfer.FBData;
+import data_transfer.LandingData;
+import data_transfer.TalkServlet;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 /*
 The panels.ButtonPanel class is a JPanel that is used to display the
@@ -18,10 +23,19 @@ public class ButtonPanel extends JPanel {
     private static boolean backFlag;
     private JPanel organiserPanel = new JPanel();
     static IDPanel idPanel = new IDPanel();
+    private ArrayList<ArrayList<Integer>> antData;
+    private ArrayList<ArrayList<Integer>> overlayAntData;
+    private LandingData dataLanding;
 
     private int count=0;        //tracks the ant ID
 
     public ButtonPanel(){
+        dataLanding = TalkServlet.getLandingData();
+        antData = dataLanding.getAntData();
+        overlayAntData = dataLanding.getOverlayAntData();
+        System.out.println("antData: " + antData);
+        System.out.println("overlay antData: " + overlayAntData);
+
         //System.out.println("panels.ButtonPanel constructor called");
         addButton = new JButton("+");
         minusButton = new JButton("-");
@@ -33,6 +47,14 @@ public class ButtonPanel extends JPanel {
         organiserPanel.add(addButton);
         organiserPanel.add(minusButton);
         add(organiserPanel);
+
+        if(antData != null) {
+            for (ArrayList<Integer> i : antData) {
+                JButton antButton = new JButton(String.valueOf(i.get(0)));
+                idPanel.add(antButton);
+                count = i.get(0);
+            }
+        }
 
         addButton.addActionListener(new ActionListener() {
             //When addButton is clicked, add a new ant button

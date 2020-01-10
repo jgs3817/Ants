@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.stream.Collectors;
 
 public class LandingData {
-    private ArrayList<ArrayList<Integer>> antData = new ArrayList<ArrayList<Integer>>();
-    private ArrayList<ArrayList<Integer>> overlayAntData = new ArrayList<ArrayList<Integer>>();
+    private static ArrayList<ArrayList<Integer>> antData = new ArrayList<ArrayList<Integer>>();
+    private static ArrayList<ArrayList<Integer>> overlayAntData = new ArrayList<ArrayList<Integer>>();
     private String videoID;
     private int frameID;
     private static int tempFrameID;
@@ -14,11 +14,11 @@ public class LandingData {
     private byte[] overlayImageByte;
 
 
-    public ArrayList<ArrayList<Integer>> getAntData() {
+    public static ArrayList<ArrayList<Integer>> getAntData() {
         return antData;
     }
 
-    public ArrayList<ArrayList<Integer>> getOverlayAntData(){return overlayAntData;}
+    public static ArrayList<ArrayList<Integer>> getOverlayAntData(){return overlayAntData;}
 
     public String getVideoID() {
         return videoID;

@@ -20,6 +20,12 @@ public class Main {
             boolean flag1 = UserPage.getUserFlag();
             boolean flag2 = LandingPage.getLandingFlag();
             boolean flag3 = ButtonPanel.getBackFlag();
+            boolean flag4 = VideoPanel.getDrawFlag();
+
+            if(flag4){
+                pageHandler.repaint();
+                VideoPanel.setDrawFlag(false);
+            }
 
             if(flag1){
                 pageHandler.getContentPane().removeAll();

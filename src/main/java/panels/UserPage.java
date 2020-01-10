@@ -69,8 +69,9 @@ public class UserPage extends JPanel {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                userpageFlag=true;
                 TalkServlet.postInit();
+                //System.out.println("postInit called");
+                userpageFlag=true;
             }
         });
     }
