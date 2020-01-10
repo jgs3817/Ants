@@ -48,7 +48,9 @@ public class TalkServlet {
 
         HttpURLConnection conn = null;
         try{
-            URL myURL = new URL("http://localhost:8080/AntsServlet/submitpage");
+            //URL myURL = new URL("http://localhost:8080/AntsServlet/submitpage");
+            URL myURL = new URL("http://servletants.herokuapp.com/submitpage");
+
             conn = null;
             conn = (HttpURLConnection) myURL.openConnection();
             conn.setRequestMethod("POST");
@@ -79,7 +81,9 @@ public class TalkServlet {
         //Database: antData
         HttpURLConnection conn = null;
         try{
-            URL myURL = new URL("http://localhost:8080/AntsServlet/FBpage");
+            //URL myURL = new URL("http://localhost:8080/AntsServlet/FBpage");
+            URL myURL = new URL("http://servletants.herokuapp.com/fbpage");
+
             conn = null;
             conn = (HttpURLConnection) myURL.openConnection();
             conn.setRequestMethod("POST");
@@ -151,7 +155,8 @@ public class TalkServlet {
         HttpURLConnection conn = null;
         try{
             //change URL to correct page
-            URL myURL = new URL("http://localhost:8080/AntsServlet/landingpage");
+            //URL myURL = new URL("http://localhost:8080/AntsServlet/landingpage");
+            URL myURL = new URL("http://servletants.herokuapp.com/landingpage");
             conn = null;
             conn = (HttpURLConnection) myURL.openConnection();
             conn.setRequestMethod("POST");
@@ -196,7 +201,8 @@ public class TalkServlet {
         //Database: progress bar
         HttpURLConnection conn = null;
         try{
-            URL myURL = new URL("http://localhost:8080/AntsServlet/init");
+            //URL myURL = new URL("http://localhost:8080/AntsServlet/init");
+            URL myURL = new URL("http://servletants.herokuapp.com/initpage");
             conn = null;
             conn = (HttpURLConnection) myURL.openConnection();
             conn.setRequestMethod("POST");

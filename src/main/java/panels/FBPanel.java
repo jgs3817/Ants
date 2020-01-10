@@ -40,7 +40,7 @@ public class FBPanel extends JPanel {
         landingData = TalkServlet.getLandingData();
         frameID = landingData.getFrameID();
 
-        System.out.println("Get Landing: " + frameID);
+        //System.out.println("Get Landing: " + frameID);
 
         submitButton.addActionListener(new ActionListener() {
             //When submitButton is clicked, submit data to servlet
