@@ -31,10 +31,9 @@ public class ButtonPanel extends JPanel {
 
     public ButtonPanel(){
         dataLanding = TalkServlet.getLandingData();
-        antData = dataLanding.getAntData();
-        overlayAntData = dataLanding.getOverlayAntData();
-        System.out.println("antData: " + antData);
-        System.out.println("overlay antData: " + overlayAntData);
+        System.out.println("Button panel dataLanding");
+        //antData = dataLanding.getAntData();
+        //System.out.println("antData: " + antData);
 
         //System.out.println("panels.ButtonPanel constructor called");
         addButton = new JButton("+");

@@ -31,10 +31,11 @@ public class MenuVideo extends JPanel{
         initData3 = TalkServlet.getInitData3();
         initData4 = TalkServlet.getInitData4();
         ByteArrayInputStream bis = new ByteArrayInputStream(initData1.getImageByte());
-        ProgressBar prog1 = new ProgressBar(12,5);
-        ProgressBar prog2 = new ProgressBar(20,5);
-        ProgressBar prog3 = new ProgressBar(20,0);
-        ProgressBar prog4 = new ProgressBar(20,1);
+
+        ProgressBar prog1 = new ProgressBar(initData1.getProgress().get(1),initData1.getProgress().get(0));
+        ProgressBar prog2 = new ProgressBar(initData2.getProgress().get(1),initData2.getProgress().get(0));
+        ProgressBar prog3 = new ProgressBar(initData3.getProgress().get(1),initData3.getProgress().get(0));
+        ProgressBar prog4 = new ProgressBar(initData4.getProgress().get(1),initData4.getProgress().get(0));
 
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();

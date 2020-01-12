@@ -37,7 +37,7 @@ public class TalkServlet {
             BufferedReader in = new BufferedReader(new InputStreamReader(myURL.openStream()));
             String inputLine;
             while((inputLine = in.readLine()) != null){
-                System.out.println(inputLine);
+                //System.out.println(inputLine);
             }
             in.close();
         } catch (IOException e) {
@@ -152,6 +152,7 @@ public class TalkServlet {
     }
 
     public static void postLanding(){
+        System.out.println("postLanding()");
         //transitioning button
         //Database: antData, frameID
         String videoID = panels.MenuVideo.getVidID();
@@ -206,8 +207,8 @@ public class TalkServlet {
         //Database: progress bar
         HttpURLConnection conn = null;
         try{
-            URL myURL = new URL("http://localhost:8080/AntsServlet/init");
-            //URL myURL = new URL("http://servletants.herokuapp.com/init");
+            //URL myURL = new URL("http://localhost:8080/AntsServlet/init");
+            URL myURL = new URL("http://servletants.herokuapp.com/init");
             conn = null;
             conn = (HttpURLConnection) myURL.openConnection();
             conn.setRequestMethod("POST");
