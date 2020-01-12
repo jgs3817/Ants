@@ -16,7 +16,7 @@ public class Main {
         pageHandler.revalidate();
         pageHandler.repaint();
 
-        while(pageHandler.isActive()){
+        while(pageHandler.isActive() || !pageHandler.isAlwaysOnTop()){
             boolean flag1 = UserPage.getUserFlag();
             boolean flag2 = LandingPage.getLandingFlag();
             boolean flag3 = ButtonPanel.getBackFlag();

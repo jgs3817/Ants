@@ -22,8 +22,14 @@ public class SubmitData implements Serializable {
 
     public void getData() {
         antData = VideoPanel.getAntData();
-        antData.remove(0);
+        if(antData.get(0).get(0)==0){
+            antData.remove(0);
+        }
         videoID = MenuVideo.getVidID();
         frameID = FBPanel.getFrameID();
+    }
+
+    public ArrayList<ArrayList<Integer>> getAntData(){
+        return antData;
     }
 }

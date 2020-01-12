@@ -32,8 +32,8 @@ public class FBData {
         return frameID;
     }
 
-    public void setFrameID(){
-        this.frameID = getTempFrameID();
+    public void setFrameID(int frame){
+        this.frameID = frame;
     }
 
     public boolean getFB(){

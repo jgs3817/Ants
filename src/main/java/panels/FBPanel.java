@@ -25,9 +25,11 @@ public class FBPanel extends JPanel {
     private static boolean fb;          //false for previous button and true for next button
     private static int frameID;
     private LandingData landingData;
+    private FBData dataFB;
 
     public FBPanel(){
         videoPanel = new VideoPanel();
+        dataFB = TalkServlet.getFBData();
         setLayout(new GridLayout(1,3));
         nextButton = new JButton("Next");
         prevButton = new JButton("Previous");
@@ -45,6 +47,7 @@ public class FBPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 try {
                     TalkServlet.postSubmit();
+
                 } catch (IOException ex) {
                     ex.printStackTrace();
                 }
@@ -57,10 +60,9 @@ public class FBPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //send servlet the current frame and video
                 fb=true;
-                //frameID++;
                 data_transfer.TalkServlet.postFB();
+                frameID++;
                 videoPanel.loadFrame();
-                //videoPanel.
             }
         });
 
@@ -70,8 +72,8 @@ public class FBPanel extends JPanel {
             public void actionPerformed(ActionEvent e) {
                 //send servlet the current frame and video
                 fb=false;
-                //frameID--;
                 data_transfer.TalkServlet.postFB();
+                frameID--;
                 videoPanel.loadFrame();
             }
         });

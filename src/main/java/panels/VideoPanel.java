@@ -35,16 +35,12 @@ public class VideoPanel extends JLayeredPane {
     private LandingData landingData;
     private Drawing indicator;
     private static boolean drawFlag;
-    private static String lastButton;
     private static String initButton;
     private LandingData dataLanding;
     private Drawing initIndicator;
 
     public VideoPanel(){
         dataLanding = TalkServlet.getLandingData();
-        //dataFB = TalkServlet.getFBData();
-        //System.out.println("Landing ant data: " + dataLanding.getAntData());
-        //System.out.println("FB ant data: " + dataFB.getOverlayAntData());
         setBackground(Color.BLACK);
         setPreferredSize(new Dimension(910,502));
         indicator = new Drawing();
