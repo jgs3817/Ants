@@ -21,7 +21,6 @@ public class UserPage extends JPanel {
         greet = new JLabel("<html> Welcome to Ants GUI <br/>Enter your name</html>");
 
         startButton = new JButton("Start");
-
         username = new JTextField();
         username.setPreferredSize((new Dimension(100,20)));
 
