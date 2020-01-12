@@ -1,7 +1,6 @@
 package data_transfer;
 
 import com.google.gson.Gson;
-import com.sun.scenario.effect.impl.sw.sse.SSEBlend_SRC_OUTPeer;
 import panels.FBPanel;
 import panels.MenuVideo;
 
