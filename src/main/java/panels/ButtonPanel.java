@@ -32,10 +32,6 @@ public class ButtonPanel extends JPanel {
 
     public ButtonPanel(){
         dataLanding = TalkServlet.getLandingData();
-        //System.out.println("Button panel dataLanding");
-        //System.out.println("FrameID: " + dataLanding.getFrameID());
-        //System.out.println("VidID: " + dataLanding.getVideoID());
-        //System.out.println("antData: " + dataLanding.getAntData());
 
         addButton = new JButton("+");
         minusButton = new JButton("-");

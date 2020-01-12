@@ -11,8 +11,8 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /*
-The data_transfer.TalkServlet class is used to establish a connection with the
-servlet and to submit the ant data to the servlet using POST
+The data_transfer.TalkServlet class is used to establish a client-server connection
+to send requests to the server and receive responses from the server
 */
 
 public class TalkServlet {
@@ -43,6 +43,7 @@ public class TalkServlet {
         }
     }
 
+    //To submit the coordinates of individual ants to the server
     public static void postSubmit() throws IOException {
         SubmitData submitData = new SubmitData();
         Gson gson = new Gson();
@@ -79,6 +80,8 @@ public class TalkServlet {
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
     }
 
+    //To inform the server that the "Next" or "Previous" button has been clicked
+    //Requests the next video frames to be displayed, along with ant coordinates
     public static void postFB(){
         HttpURLConnection conn = null;
         try{
@@ -98,12 +101,10 @@ public class TalkServlet {
         FBData sendFBData = new FBData();
         boolean fb = FBPanel.getFBState();
         int frameID = FBPanel.getFrameID();
-        //System.out.println("Sending frame: " + frameID);
         String videoID = MenuVideo.getVidID();
-        FBData.setTempFrameID(frameID);
 
         sendFBData.setFB(fb);
-        sendFBData.setFrameID();
+        sendFBData.setFrameID(frameID);
         sendFBData.setVideoID(videoID);
 
         Gson sendGson = new Gson();
@@ -122,14 +123,15 @@ public class TalkServlet {
             while((inputLine = bufferedReader.readLine()) != null) {
                 Gson inputGson = new Gson();
                 dataFB = inputGson.fromJson(inputLine, FBData.class);
-                //System.out.println("Receiving frame: " + dataFB.getFrameID());
                 if(dataFB.getFB()){
                     int frame = dataFB.getFrameID();
-                    dataFB.setTempFrameID(frame+1);
+                    frame = frame+1;
+                    dataFB.setFrameID(frame);
                 }
                 else{
                     int frame = dataFB.getFrameID();
-                    dataFB.setTempFrameID(frame-1);
+                    frame = frame-1;
+                    dataFB.setFrameID(frame);
                 }
             }
             bufferedReader.close();
@@ -139,6 +141,7 @@ public class TalkServlet {
         FBState=true;
     }
 
+    //To initialise the first frame of the TrackingPage along with the labelled ant coordinates, if any
     public static void postLanding(){
         String videoID = panels.MenuVideo.getVidID();
         byte[] body = videoID.getBytes(StandardCharsets.UTF_8);
@@ -176,6 +179,7 @@ public class TalkServlet {
         }
     }
 
+    //To initialise the thumbnails of the videos and their progress in the LandingPage
     public static void postInit(){
         HttpURLConnection conn = null;
         try{
@@ -237,14 +241,6 @@ public class TalkServlet {
 
     public static LandingData getLandingData(){
         return landingData;
-    }
-
-    public static boolean getFBState(){
-        return FBState;
-    }
-
-    public static void setFBState(boolean state){
-        FBState = state;
     }
 
     public TalkServlet(){
