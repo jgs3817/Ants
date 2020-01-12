@@ -41,9 +41,9 @@ public class LandingPage extends JPanel {
         add(new MenuVideo(), c);
 
         c.gridx = 0;
-        c.gridy = 8;
+        c.gridy = 7;
         c.weightx = 1;
-        c.weighty = 1;
+        c.weighty = 3;
         startButton = new JButton("Start Tracking!");
         add(startButton, c);
 
