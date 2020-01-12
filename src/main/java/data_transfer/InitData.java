@@ -2,7 +2,12 @@ package data_transfer;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.stream.Collectors;
+
+/*
+The InitData class is used to:
+Receive data about the thumbnails of each video option in the video menu,
+and the labelling progress of each video
+*/
 
 public class InitData implements Serializable {
     private String videoID;

@@ -6,8 +6,8 @@ import javax.swing.*;
 import java.awt.*;
 
 /*
-The panels.TrackingPage class is used to create a JFrame which has the main container
-for holding the panels.ButtonIDContainer and panels.VideoFramesContainer
+The panels.TrackingPage class is a JPanel which is a page containing
+the panels.ButtonIDContainer and panels.VideoFramesContainer
 */
 
 public class TrackingPage extends JPanel{
@@ -25,7 +25,7 @@ public class TrackingPage extends JPanel{
         add(new VideoFramesContainer(),c);
     }
 
-    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+    private void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
         c.gridx = gx;
         c.gridy = gy;
         c.weightx = wx;

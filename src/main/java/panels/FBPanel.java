@@ -55,38 +55,41 @@ public class FBPanel extends JPanel {
         });
 
         nextButton.addActionListener(new ActionListener() {
-            //When submitButton is clicked, submit data to servlet
+            //When nextButton is clicked, inform server and increment frameID
             @Override
             public void actionPerformed(ActionEvent e) {
-                //send servlet the current frame and video
+                //send server the current frame
                 fb=true;
                 data_transfer.TalkServlet.postFB();
-                frameID++;
-                videoPanel.loadFrame();
+                frameID++;                                  //increments frameID when next button is clicked
+                videoPanel.loadFrame();                     //refreshes the video panel to update the displayed frame of the video
             }
         });
 
         prevButton.addActionListener(new ActionListener() {
-            //When submitButton is clicked, submit data to servlet
+            //When prevButton is clicked, inform server and decrement frameID
             @Override
             public void actionPerformed(ActionEvent e) {
-                //send servlet the current frame and video
+                //send server the current frame
                 fb=false;
                 data_transfer.TalkServlet.postFB();
-                frameID--;
-                videoPanel.loadFrame();
+                frameID--;                                  //decrements frameID when previous button is clicked
+                videoPanel.loadFrame();                     //refreshes the video panel to update the displayed frame of the video
             }
         });
     }
 
+    //Inform server whether the "Next" or "Previous" button is clicked
     public static boolean getFBState(){
         return fb;
     }
 
+    //Allows the instance of video panel to be accessed in other classes
     public VideoPanel returnVideoPanel(){
         return videoPanel;
     }
 
+    //returns current frameID
     public static int getFrameID(){
         return frameID;
     }

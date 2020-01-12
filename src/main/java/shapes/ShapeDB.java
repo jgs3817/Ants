@@ -3,6 +3,10 @@ package shapes;
 import java.awt.*;
 import java.util.ArrayList;
 
+/*
+The shapes.ShapeDB class is used to add shapes to an ArrayList to be drawn
+*/
+
 public class ShapeDB {
     private ArrayList<Shape> list;
 
