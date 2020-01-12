@@ -6,12 +6,16 @@
       <configuration>
         <webroots>
           <root url="file://$MODULE_DIR$/../../src/main/webapp" relative="/" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot" relative="/abbot" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/junit/extensions/abbot" relative="/junit/extensions/abbot" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/gson-2.7.jar_1f64285cb80b7c64032ed85af9a90fec/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/gson-2.7.jar_1f64285cb80b7c64032ed85af9a90fec/com" relative="/com" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_784d7c0af51669c8bab3b8ad1eaa47b4/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_784d7c0af51669c8bab3b8ad1eaa47b4/javax" relative="/javax" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.websocket-api-1.0.jar_151af79ddbd2cc24c6fb4a11a7eb69d3/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.websocket-api-1.0.jar_151af79ddbd2cc24c6fb4a11a7eb69d3/javax" relative="/javax" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d" relative="/" />
         </webroots>
       </configuration>
     </facet>
@@ -25,8 +29,10 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="Gradle: abbot:abbot:1.4.0" level="project" />
     <orderEntry type="library" name="Gradle: com.google.code.gson:gson:2.7" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.servlet:javax.servlet-api:3.1.0" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Gradle: javax.websocket:javax.websocket-api:1.0" level="project" />
+    <orderEntry type="library" name="Gradle: junit:junit:4.8.2" level="project" />
   </component>
 </module>
