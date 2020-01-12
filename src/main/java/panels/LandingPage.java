@@ -8,43 +8,35 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-// Video menu page: displays 4 video thumbnails for user to choose from.
-// display user name, "start labelling" button that leads to the labelling window (Main).
+/*
+The panels.LandingPage class is a JPanel which contains the menu of videos and
+a button to go to the TrackingPage
+*/
 
 public class LandingPage extends JPanel {
-    private JLabel header;
-    private JButton startButton;
-    private static boolean landingFlag;
+    private JLabel header;                  //To display "Select a video"
+    private JButton startButton;            //On click, go to TrackingPage
+    private static boolean landingFlag;     //False: do not display TrackingPage; True: display TrackingPage
 
     public LandingPage() {
         landingFlag = false;
-        //System.out.println("panels.LandingPage constructor called");
         setSize(500,300);
-        //setLayout(new GridLayout(0,1));
         setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-
+        GridBagConstraints c = new GridBagConstraints();    //GridBag layout
         c.fill = GridBagConstraints.BOTH;
         c.anchor = GridBagConstraints.FIRST_LINE_START;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weightx = 1;
-        c.weighty = 1;
-        header = new JLabel("Choose a Video");
-        add(header, c);
-        header.setHorizontalAlignment(JLabel.CENTER);  // center align JLabel header
 
-        c.gridx = 0;
-        c.gridy = 2;
-        c.weightx = 1;
-        c.weighty = 4;
+        setGridBagLayout(c,0,0,1,1);       //Setting GridBag layout
+        header = new JLabel("Select a video");
+        header.setFont(new Font("default", Font.BOLD, 24));
+        add(header, c);
+        header.setHorizontalAlignment(JLabel.CENTER);       //center align header
+
+        setGridBagLayout(c,0,2,1,4);
         add(new MenuVideo(), c);
 
-        c.gridx = 0;
-        c.gridy = 7;
-        c.weightx = 1;
-        c.weighty = 3;
         startButton = new JButton("Start Tracking!");
+        setGridBagLayout(c,0,7,1,3);
         add(startButton, c);
 
         startButton.addActionListener(new ActionListener() {
@@ -54,6 +46,13 @@ public class LandingPage extends JPanel {
                 landingFlag=true;
             }
         });
+    }
+
+    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+        c.gridx = gx;
+        c.gridy = gy;
+        c.weightx = wx;
+        c.weighty = wy;
     }
 
     public static boolean getLandingFlag(){

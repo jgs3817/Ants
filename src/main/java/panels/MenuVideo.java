@@ -13,179 +13,67 @@ import java.awt.image.AffineTransformOp;
 import java.awt.image.BufferedImage;
 import java.io.ByteArrayInputStream;
 import java.io.IOException;
+import java.util.ArrayList;
 
 // GridbagLayout for 4 video thumbnails
 public class MenuVideo extends JPanel{
     private JButton vid1, vid2, vid3, vid4;
     static int vidID;
-    private InitData initData1;
-    private InitData initData2;
-    private InitData initData3;
-    private InitData initData4;
+    private ArrayList<InitData> initData;
     BufferedImage bImage;
 
     public MenuVideo(){
         bImage = null;
-        initData1 = TalkServlet.getInitData1();
-        initData2 = TalkServlet.getInitData2();
-        initData3 = TalkServlet.getInitData3();
-        initData4 = TalkServlet.getInitData4();
-        ByteArrayInputStream bis = new ByteArrayInputStream(initData1.getImageByte());
+        initData = new ArrayList<>();
+        initData.add(TalkServlet.getInitData1());
+        initData.add(TalkServlet.getInitData2());
+        initData.add(TalkServlet.getInitData3());
+        initData.add(TalkServlet.getInitData4());
 
-        ProgressBar prog1 = new ProgressBar(initData1.getProgress().get(1),initData1.getProgress().get(0));
-        ProgressBar prog2 = new ProgressBar(initData2.getProgress().get(1),initData2.getProgress().get(0));
-        ProgressBar prog3 = new ProgressBar(initData3.getProgress().get(1),initData3.getProgress().get(0));
-        ProgressBar prog4 = new ProgressBar(initData4.getProgress().get(1),initData4.getProgress().get(0));
+        ProgressBar prog1 = new ProgressBar(initData.get(0).getProgress().get(1),initData.get(0).getProgress().get(0));
+        ProgressBar prog2 = new ProgressBar(initData.get(1).getProgress().get(1),initData.get(1).getProgress().get(0));
+        ProgressBar prog3 = new ProgressBar(initData.get(2).getProgress().get(1),initData.get(2).getProgress().get(0));
+        ProgressBar prog4 = new ProgressBar(initData.get(3).getProgress().get(1),initData.get(3).getProgress().get(0));
+
+        vid1 = setThumbnail(initData, 1);
+        vid2 = setThumbnail(initData,2);
+        vid3 = setThumbnail(initData,3);
+        vid4 = setThumbnail(initData, 4);
 
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-
-        try {
-            bImage = ImageIO.read(bis);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        ImageIcon scaledImage = new ImageIcon(bImage.getScaledInstance(200,113,Image.SCALE_DEFAULT));
-        vid1 = new JButton(scaledImage);
-        vid1.setBorder(BorderFactory.createEmptyBorder());
-        vid1.setContentAreaFilled(false);
-
         c.fill = GridBagConstraints.BOTH;
         c.anchor=GridBagConstraints.FIRST_LINE_START;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weightx=1;
-        c.weighty=1;
-        add(vid1,c);
 
-        c.gridx = 0;
-        c.gridy = 1;
-        c.weightx=1;
-        c.weighty=1;
+        setGridBagLayout(c,0,0,1,1);
+        add(vid1,c);
+        setGridBagLayout(c,0,1,1,1);
         add(prog1,c);
 
-
-        bis = new ByteArrayInputStream(initData2.getImageByte());
-        try {
-            bImage = ImageIO.read(bis);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        scaledImage = new ImageIcon(bImage.getScaledInstance(200,113,Image.SCALE_DEFAULT));
-        vid2 = new JButton(scaledImage);
-        vid2.setBorder(BorderFactory.createEmptyBorder());
-        vid2.setContentAreaFilled(false);
-
-        c.gridx = 1;
-        c.gridy = 0;
-        c.weightx=1;
-        c.weighty=1;
+        setGridBagLayout(c,1,0,1,1);
         add(vid2,c);
-
-        c.gridx = 1;
-        c.gridy = 1;
-        c.weightx=1;
-        c.weighty=1;
+        setGridBagLayout(c,1,1,1,1);
         add(prog2,c);
 
-        bis = new ByteArrayInputStream(initData3.getImageByte());
-        try {
-            bImage = ImageIO.read(bis);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        scaledImage = new ImageIcon(bImage.getScaledInstance(200,113,Image.SCALE_DEFAULT));
-        vid3 = new JButton(scaledImage);
-        vid3.setBorder(BorderFactory.createEmptyBorder());
-        vid3.setContentAreaFilled(false);
-        c.gridx = 0;
-        c.gridy = 2;
-        c.weightx=1;
-        c.weighty=1;
-        add(vid3,c);
 
-        c.gridx = 0;
-        c.gridy = 3;
-        c.weightx=1;
-        c.weighty=1;
+        setGridBagLayout(c,0,2,1,1);
+        add(vid3,c);
+        setGridBagLayout(c,0,3,1,1);
         add(prog3,c);
 
-        bis = new ByteArrayInputStream(initData4.getImageByte());
-        try {
-            bImage = ImageIO.read(bis);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        scaledImage = new ImageIcon(bImage.getScaledInstance(200,113,Image.SCALE_DEFAULT));
-        vid4 = new JButton(scaledImage);
-        vid4.setBorder(BorderFactory.createEmptyBorder());
-        vid4.setContentAreaFilled(false);
-        c.gridx = 1;
-        c.gridy = 2;
-        c.weightx=1;
-        c.weighty=1;
+        setGridBagLayout(c,1,2,1,1);
         add(vid4,c);
-
-        c.gridx = 1;
-        c.gridy = 3;
-        c.weightx=1;
-        c.weighty=1;
+        setGridBagLayout(c,1,3,1,1);
         add(prog4,c);
 
-        vidID = 1; // default open video 1
+        vidID = 1; //by default select video 1
 
-        /*vid1 = new JButton("Video 1");
-
-        //ImageIcon ant1 = new ImageIcon(getClass().getClassLoader().getResource("./vid_1/00001.png"));
-        //int offset =  vid1.getInsets().left;
-        //vid1.setIcon(resizeIcon(ant1,vid1.getWidth()-offset,vid1.getHeight()-offset));
-        //vid1 = new JButton(ant1);
-        //vid1 = new JButton("video 1");
-        vid2 = new JButton("Video 2");
-        vid3 = new JButton("Video 3");
-        vid4 = new JButton("Video 4");
-
-        // BufferedImage ant1 = new BufferedImage(Objects.requireNonNull(getClass().getClassLoader().getResource(path)));
-
-        // button layout
-        c.fill = GridBagConstraints.BOTH;
-        c.anchor=GridBagConstraints.FIRST_LINE_START;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weightx=1;
-        c.weighty=1;
-        add(vid1 ,c);
-
-
-        c.gridx = 1;
-        c.gridy = 0;
-        c.weightx=1;
-        c.weighty=1;
-        add(vid2 ,c);
-
-        c.gridx = 0;
-        c.gridy = 1;
-        c.weightx=1;
-        c.weighty=1;
-        add(vid3 ,c);
-
-        c.gridx = 1;
-        c.gridy = 1;
-        c.weightx=1;
-        c.weighty=1;
-        add(vid4 ,c);*/
-
-        //revalidate();
-        //repaint();
         setSize(200,200);
 
-        // Add button actions : return videoID
         vid1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 vidID = 1;
-                //System.out.println("Clicked");
-                //getVidID(vidID);
             }
         });
 
@@ -193,8 +81,6 @@ public class MenuVideo extends JPanel{
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 vidID = 2;
-                //System.out.println("Clicked2");
-                //getVidID(vidID);
             }
         });
 
@@ -202,8 +88,6 @@ public class MenuVideo extends JPanel{
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 vidID = 3;
-                //System.out.println("Clicked3");
-                //getVidID(vidID);
             }
         });
 
@@ -211,10 +95,15 @@ public class MenuVideo extends JPanel{
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
                 vidID = 4;
-                //System.out.println("Clicked4");
-                //getVidID(vidID);
             }
         });
+    }
+
+    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+        c.gridx = gx;
+        c.gridy = gy;
+        c.weightx = wx;
+        c.weighty = wy;
     }
 
     public static String getVidID(){
@@ -222,10 +111,23 @@ public class MenuVideo extends JPanel{
         return video;
     }
 
-    public static Icon resizeIcon(ImageIcon icon, int resizedWidth, int resizedHeight) {
-        Image img = icon.getImage();
-        Image resizedImage = img.getScaledInstance(resizedWidth, resizedHeight,  java.awt.Image.SCALE_SMOOTH);
-        return new ImageIcon(resizedImage);
+    private JButton setThumbnail(ArrayList<InitData> initData, int number){
+        BufferedImage bImage = null;
+        JButton vid;
+
+        ByteArrayInputStream bis = new ByteArrayInputStream(initData.get(number-1).getImageByte());
+        try {
+            bImage = ImageIO.read(bis);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        ImageIcon scaledImage = new ImageIcon(bImage.getScaledInstance(400,226,Image.SCALE_DEFAULT));
+
+        vid = new JButton(scaledImage);
+        vid.setBorder(BorderFactory.createEmptyBorder());
+        vid.setContentAreaFilled(false);
+
+        return vid;
     }
 
 }

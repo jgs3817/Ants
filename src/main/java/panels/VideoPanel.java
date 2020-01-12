@@ -31,62 +31,46 @@ public class VideoPanel extends JLayeredPane {
     private static ArrayList<ArrayList<Integer>> antData = new ArrayList<ArrayList<Integer>>();
     private ArrayList<Integer> individualAntData;
     private int buttonID;
-    private static int[] frameID;
     private FBData dataFB;
     private LandingData landingData;
     private Drawing indicator;
     private static boolean drawFlag;
+    private static String lastButton;
+    private static String initButton;
+    private LandingData dataLanding;
+    private Drawing initIndicator;
 
     public VideoPanel(){
-        //System.out.println("Video panel constructor called");
+        dataLanding = TalkServlet.getLandingData();
+        //dataFB = TalkServlet.getFBData();
+        //System.out.println("Landing ant data: " + dataLanding.getAntData());
+        //System.out.println("FB ant data: " + dataFB.getOverlayAntData());
         setBackground(Color.BLACK);
-        setPreferredSize(new Dimension(455,251));
-        //setLayout(new BorderLayout());
+        setPreferredSize(new Dimension(910,502));
         indicator = new Drawing();
-
-        frameID = new int[2];
-        frameID[0] = 1;
-        frameID[1] = 1;
 
         ArrayList<Integer> init = new ArrayList<Integer>();
         init.add(0);
         antData.add(init);
 
         BufferedImage initialImage = initialImage();
-        /*
-        BufferedImage overlayImage = initialOverlayImage();
-        Graphics2D g = initialImage.createGraphics();
-
-        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
-        g.drawImage(initialImage, 0, 0, this);
-
-        g.drawImage(overlayImage, 0, 0, this);
-        g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.99f));
-        */
-        ImageIcon scaledImage = new ImageIcon(initialImage.getScaledInstance(494,271,Image.SCALE_DEFAULT)); //fixed scaling
-
+        ImageIcon scaledImage = new ImageIcon(initialImage.getScaledInstance(1070,598,Image.SCALE_DEFAULT)); //fixed scaling
         JLabel picLabel = new JLabel(scaledImage);
         picLabel.setBounds(new Rectangle(new Point(0,0), picLabel.getPreferredSize()));
-        add(picLabel,JLayeredPane.DEFAULT_LAYER);
+        add(picLabel,2);
 
-        //indicator.setPreferredSize(new Dimension(getWidth(),getHeight()));
         indicator.setBounds(new Rectangle(new Point(1,0), indicator.getPreferredSize()));
-        add(indicator,JLayeredPane.PALETTE_LAYER);
+        add(indicator,0);
 
+        if(dataLanding.getAntData() != null) {
+            for (ArrayList<Integer> i : dataLanding.getAntData()) {
+                initButton = Integer.toString(i.get(0));
+                Point p = new Point(i.get(1), i.get(2));
+                indicator.addCircle(p, new Color(0x56DB57), 20, initButton);
+            }
+        }
         revalidate();
         repaint();
-
-
-        /*
-        if(FBPanel.getFrameID()>0) {
-            new Timer().schedule(new TimerTask() {
-                @Override
-                public void run() {
-                    removeAll();
-                    loadFrame();
-                }
-            }, 500, 500);
-        }*/
 
         addMouseListener(new MouseListener() {
             @Override
@@ -99,15 +83,19 @@ public class VideoPanel extends JLayeredPane {
                 x_coordinate = e.getPoint().x;
                 y_coordinate = e.getPoint().y;
 
-                indicator.removeAll();
-                indicator.addCircle(new Point(x_coordinate-5,y_coordinate-5),new Color(0x3c993d),10);
-                drawFlag = true;
+                if(ButtonPanel.getLastButton()!=null) {
+                    remove(indicator);
+                    indicator = new Drawing();
+                    indicator.setBounds(new Rectangle(new Point(1,0), indicator.getPreferredSize()));
+                    add(indicator,0);
+                    indicator.addCircle(new Point(x_coordinate - 5, y_coordinate - 5), new Color(0x56DB57), 20, ButtonPanel.getLastButton().getText());
+                    drawFlag = true;
+                }
 
                 individualAntData = new ArrayList<Integer>();
 
                 if(ButtonPanel.getLastButton()!=null) {
                     buttonID = Integer.parseInt(ButtonPanel.getLastButton().getText());
-
                     fillIndividualAntData(individualAntData, buttonID, x_coordinate, y_coordinate);
 
                     flag=false;
@@ -157,8 +145,6 @@ public class VideoPanel extends JLayeredPane {
     }
 
     public static ArrayList<ArrayList<Integer>> getAntData() {
-        //antData.remove(0);
-        //antData.remove(0);
         return antData;
     }
 
@@ -169,18 +155,27 @@ public class VideoPanel extends JLayeredPane {
     }
 
     public void loadFrame(){
-        //System.out.println("loadFrame() called");
         removeAll();
+
+        dataFB = TalkServlet.getFBData();
+        if(dataFB.getOverlayAntData() != null){
+            initIndicator = new Drawing();
+            initIndicator.setBounds(new Rectangle(new Point(2,0), initIndicator.getPreferredSize()));
+            add(initIndicator, 1);
+            for(ArrayList<Integer> i : dataFB.getOverlayAntData()){
+                initButton = Integer.toString(i.get(0));
+                Point p = new Point(i.get(1), i.get(2));
+                initIndicator.addCircle(p, new Color(0xDB3835), 20, initButton+"'");
+            }
+        }
 
         indicator = new Drawing();
 
         BufferedImage inputImage = convertImageByte();
         BufferedImage inputImage2 = convertFBImageByte();
-        //System.out.println(inputImage);
-        //System.out.println(inputImage2);
+
         BufferedImage overlay = new BufferedImage(inputImage.getWidth(),inputImage.getHeight(),BufferedImage.TYPE_INT_ARGB);
         Graphics2D g = overlay.createGraphics();
-
 
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.5f));
         g.drawImage(inputImage2, 0, 0, this);
@@ -188,16 +183,14 @@ public class VideoPanel extends JLayeredPane {
         g.drawImage(inputImage, 0, 0, this);
         g.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER, 0.99f));
 
-        //System.out.println("Width: " + getWidth());
-        //System.out.println("Height: " + getHeight());
         ImageIcon scaledImage = new ImageIcon(overlay.getScaledInstance(getWidth(),getHeight(),Image.SCALE_DEFAULT));
 
         JLabel picLabel = new JLabel(scaledImage);
         picLabel.setBounds(new Rectangle(new Point(0,0), picLabel.getPreferredSize()));
-        add(picLabel,JLayeredPane.DEFAULT_LAYER);
+        add(picLabel,2);
 
         indicator.setBounds(new Rectangle(new Point(1,0), indicator.getPreferredSize()));
-        add(indicator,JLayeredPane.PALETTE_LAYER);
+        add(indicator,0);
 
         revalidate();
         repaint();
@@ -218,11 +211,13 @@ public class VideoPanel extends JLayeredPane {
     private BufferedImage convertFBImageByte(){
         BufferedImage bImage = null;
         dataFB = TalkServlet.getFBData();
-        ByteArrayInputStream bis = new ByteArrayInputStream(dataFB.getOverlayImageByte());
-        try {
-            bImage = ImageIO.read(bis);
-        } catch (IOException e) {
-            e.printStackTrace();
+        if(dataFB.getOverlayImageByte()!=null) {
+            ByteArrayInputStream bis = new ByteArrayInputStream(dataFB.getOverlayImageByte());
+            try {
+                bImage = ImageIO.read(bis);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
         }
         return bImage;
     }
@@ -235,20 +230,6 @@ public class VideoPanel extends JLayeredPane {
             bImage = ImageIO.read(bis);
         } catch (IOException e) {
             e.printStackTrace();
-        }
-        return bImage;
-    }
-
-    private BufferedImage initialOverlayImage(){
-        BufferedImage bImage = null;
-        landingData = TalkServlet.getLandingData();
-        if(landingData.getOverlayImageByte()!=null) {
-            ByteArrayInputStream bis = new ByteArrayInputStream(landingData.getOverlayImageByte());
-            try {
-                bImage = ImageIO.read(bis);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
         return bImage;
     }
