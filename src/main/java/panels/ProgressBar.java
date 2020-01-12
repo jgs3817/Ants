@@ -9,7 +9,12 @@ import javax.swing.JProgressBar;
 import javax.swing.border.Border;
 import javax.swing.*;
 
+/*
+The panels.ProgressBar is a JPanel which is used to generate the progress bars
+*/
+
 public class ProgressBar extends JPanel{
+
     public ProgressBar(int maxframe, int latestframe){
 
         JProgressBar progressBar = new JProgressBar();
@@ -17,8 +22,6 @@ public class ProgressBar extends JPanel{
         progressBar.setMaximum(maxframe);
         progressBar.setValue(latestframe);
         progressBar.setStringPainted(true);
-        // Border border = BorderFactory.createTitledBorder("Reading...");
-        // progressBar.setBorder(border);
 
         add(progressBar);
     }

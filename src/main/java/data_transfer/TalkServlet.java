@@ -11,7 +11,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 
 /*
-The data_transfer.TalkServlet class is used to establish a client-server connection
+The TalkServlet class is used to establish a client-server connection
 to send requests to the server and receive responses from the server
 */
 

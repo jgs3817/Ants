@@ -12,7 +12,8 @@ import java.util.ArrayList;
 
 /*
 The panels.ButtonPanel class is a JPanel that is used to display the
-+ and - buttons which each have an action listener
++ and - buttons which each have an action listener, as well as a
+back button to return to the LandingPage to see the video options
 */
 
 public class ButtonPanel extends JPanel {
@@ -31,7 +32,7 @@ public class ButtonPanel extends JPanel {
     private int count=0;        //tracks the ant ID
 
     public ButtonPanel(){
-        dataLanding = TalkServlet.getLandingData();
+        dataLanding = TalkServlet.getLandingData();             //gets the LandingData object from TalkServlet class
 
         addButton = new JButton("+");
         minusButton = new JButton("-");
@@ -44,6 +45,9 @@ public class ButtonPanel extends JPanel {
         organiserPanel.add(minusButton);
         add(organiserPanel);
 
+        /*
+        For future developments
+        //Initialising the ant buttons
         if(antData != null) {
             for (ArrayList<Integer> i : antData) {
                 JButton antButton = new JButton(String.valueOf(i.get(0)));
@@ -51,6 +55,7 @@ public class ButtonPanel extends JPanel {
                 count = i.get(0);
             }
         }
+        */
 
         addButton.addActionListener(new ActionListener() {
             //When addButton is clicked, add a new ant button
@@ -68,7 +73,7 @@ public class ButtonPanel extends JPanel {
                                 lastButton.setBackground(null);
                             }
                         }
-                        lastButton = antButton;
+                        lastButton = antButton;                             //stores the object JButton that was last clicked
                     }
                 });
                 idPanel.add(antButton);
@@ -99,12 +104,12 @@ public class ButtonPanel extends JPanel {
         });
     }
 
-    //Function for ID panel object to be accessed in other classes
+    //Method for ID panel object to be accessed in other classes
     public static JPanel getIDPanel(){
         return idPanel;
     }
 
-    //Function to return the last clicked button
+    //Returns the last clicked button
     public static JButton getLastButton(){
         if (lastButton == null){
             return null;
@@ -112,10 +117,12 @@ public class ButtonPanel extends JPanel {
         return lastButton;
     }
 
+    //True when back button has been clicked. Used for the management of pages
     public static boolean getBackFlag(){
         return backFlag;
     }
 
+    //Used for the management of pages
     public static void setBackFlag(boolean state){
         backFlag=state;
     }

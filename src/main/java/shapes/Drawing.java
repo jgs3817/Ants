@@ -3,6 +3,10 @@ package shapes;
 import javax.swing.*;
 import java.awt.*;
 
+/*
+The shapes.Drawing class is a JPanel where the visual feedback is drawn on
+*/
+
 public class Drawing extends JPanel {
     private ShapeDB shapeDB = new ShapeDB();
 

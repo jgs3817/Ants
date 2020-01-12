@@ -4,6 +4,13 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.stream.Collectors;
 
+/*
+The LandingData class is used to:
+Send data to the server about which video has been selected for labelling
+Receive data about the last labelled frame, and the video's current
+and overlay images to display in the TrackingPage
+*/
+
 public class LandingData {
     private ArrayList<ArrayList<Integer>> antData;
     private String videoID;

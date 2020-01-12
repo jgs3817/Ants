@@ -7,6 +7,11 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/*
+The panels.UserPage class is a JPanel which is a page to allow
+users to enter their username
+*/
+
 public class UserPage extends JPanel {
     private JButton startButton;
     private JLabel greet;
@@ -59,7 +64,7 @@ public class UserPage extends JPanel {
         });
     }
 
-    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+    private void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
         c.gridx = gx;
         c.gridy = gy;
         c.weightx = wx;

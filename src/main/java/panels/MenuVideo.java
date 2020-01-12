@@ -15,7 +15,10 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.util.ArrayList;
 
-// GridbagLayout for 4 video thumbnails
+/*
+The panels.MenuVideo class is a JPanel which contains the menu of videos
+*/
+
 public class MenuVideo extends JPanel{
     private JButton vid1, vid2, vid3, vid4;
     static int vidID;
@@ -24,17 +27,21 @@ public class MenuVideo extends JPanel{
 
     public MenuVideo(){
         bImage = null;
+
+        //stores 4 initData objects which are used to initialise the thumbnails and progress bars
         initData = new ArrayList<>();
         initData.add(TalkServlet.getInitData1());
         initData.add(TalkServlet.getInitData2());
         initData.add(TalkServlet.getInitData3());
         initData.add(TalkServlet.getInitData4());
 
+        //Creating the 4 progress bars of each video
         ProgressBar prog1 = new ProgressBar(initData.get(0).getProgress().get(1),initData.get(0).getProgress().get(0));
         ProgressBar prog2 = new ProgressBar(initData.get(1).getProgress().get(1),initData.get(1).getProgress().get(0));
         ProgressBar prog3 = new ProgressBar(initData.get(2).getProgress().get(1),initData.get(2).getProgress().get(0));
         ProgressBar prog4 = new ProgressBar(initData.get(3).getProgress().get(1),initData.get(3).getProgress().get(0));
 
+        //Creating the JButtons, which are thumbnails, of each video
         vid1 = setThumbnail(initData, 1);
         vid2 = setThumbnail(initData,2);
         vid3 = setThumbnail(initData,3);
@@ -66,7 +73,7 @@ public class MenuVideo extends JPanel{
         setGridBagLayout(c,1,3,1,1);
         add(prog4,c);
 
-        vidID = 1; //by default select video 1
+        vidID = 1;          //Video 1 selected by default
 
         setSize(200,200);
 
@@ -99,18 +106,20 @@ public class MenuVideo extends JPanel{
         });
     }
 
-    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+    private void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
         c.gridx = gx;
         c.gridy = gy;
         c.weightx = wx;
         c.weighty = wy;
     }
 
+    //Used to inform the server about which video has been selected for labelling
     public static String getVidID(){
         String video = "vid_" + vidID;
         return video;
     }
 
+    //Function to create the JButton containing the thumbnail of the video to be labelled
     private JButton setThumbnail(ArrayList<InitData> initData, int number){
         BufferedImage bImage = null;
         JButton vid;

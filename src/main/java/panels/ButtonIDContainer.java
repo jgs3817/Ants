@@ -27,7 +27,7 @@ public class ButtonIDContainer extends JPanel {
         add(idPanel, c);
     }
 
-    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+    private void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
         c.gridx = gx;
         c.gridy = gy;
         c.weightx = wx;

@@ -9,8 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /*
-The panels.LandingPage class is a JPanel which contains the menu of videos and
-a button to go to the TrackingPage
+The panels.LandingPage class is a JPanel which is a page containing
+the menu of videos and a Start button to go to the TrackingPage
 */
 
 public class LandingPage extends JPanel {
@@ -42,23 +42,26 @@ public class LandingPage extends JPanel {
         startButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+                //Informs server to transition from LandingPage to TrackingPage
                 TalkServlet.postLanding();
                 landingFlag=true;
             }
         });
     }
 
-    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+    private void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
         c.gridx = gx;
         c.gridy = gy;
         c.weightx = wx;
         c.weighty = wy;
     }
 
+    //True when start button has been clicked. Used for the management of pages
     public static boolean getLandingFlag(){
         return landingFlag;
     }
 
+    //Used for the management of pages
     public static void setLandingFlag(boolean state){
         landingFlag = state;
     }

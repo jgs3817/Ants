@@ -7,8 +7,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 
 /*
-The data_transfer.SubmitData class is used to collect the necessary data to be sent
-to the servlet
+The SubmitData class is used to:
+Send data to the server about the ants' coordinates
 */
 
 public class SubmitData implements Serializable {

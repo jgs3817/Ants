@@ -2,6 +2,12 @@ package data_transfer;
 
 import java.util.ArrayList;
 
+/*
+The FBData class is used to:
+Send data to the server when the "Next" or "Previous" button has been clicked
+Receive data about the next frameID, the video's current and overlay images
+*/
+
 public class FBData {
     private ArrayList<ArrayList<Integer>> overlayAntData;
     private String videoID;
