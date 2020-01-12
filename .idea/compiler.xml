@@ -4,6 +4,8 @@
     <bytecodeTargetLevel>
       <module name="Ants.main" target="1.8" />
       <module name="Ants.test" target="1.8" />
+      <module name="Ants_josh_master.Ants.main" target="1.8" />
+      <module name="Ants_josh_master.Ants.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

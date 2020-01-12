@@ -10,16 +10,16 @@
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/build/libs/exploded/Ants-1.0-SNAPSHOT.war/META-INF/MANIFEST.MF" />
       </element>
-      <element id="javaee-facet-resources" facet="Ants.main/web/Web Gradle : Ants-1.0-SNAPSHOT.war" />
+      <element id="javaee-facet-resources" facet="Ants_josh_master.Ants.main/web/Web Gradle : Ants-1.0-SNAPSHOT.war" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
-          <element id="module-output" name="Ants.main" />
+          <element id="module-output" name="Ants_josh_master.Ants.main" />
           <element id="dir-copy" path="$PROJECT_DIR$/build/resources/main" />
         </element>
         <element id="directory" name="lib">
+          <element id="library" level="project" name="Gradle: abbot:abbot:1.4.0" />
           <element id="library" level="project" name="Gradle: com.google.code.gson:gson:2.7" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/abbot/abbot/1.4.0/a2363646a9dd05955633b450010b59a21af8a423/abbot-1.4.0.jar" />
-          <element id="file-copy" path="$USER_HOME$/.gradle/caches/modules-2/files-2.1/junit/junit/4.8.2/c94f54227b08100974c36170dcb53329435fe5ad/junit-4.8.2.jar" />
+          <element id="library" level="project" name="Gradle: junit:junit:4.8.2" />
         </element>
       </element>
     </root>
