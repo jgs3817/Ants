@@ -15,6 +15,4 @@ deploy:
   api_key:
     secure: 3dece2ce-6112-432c-a556-376d15f88bff
   app: ants-tracker
-  on:
-    branch: master
   skip_cleanup: true
