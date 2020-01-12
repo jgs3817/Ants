@@ -14,22 +14,23 @@ public class ButtonIDContainer extends JPanel {
     public ButtonIDContainer(){
         idPanel = (IDPanel) ButtonPanel.getIDPanel();
         setSize(250,300);
+
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-
         c.fill = GridBagConstraints.BOTH;
         c.anchor=GridBagConstraints.FIRST_LINE_START;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weightx=1;
-        c.weighty=1;
+
+        setGridBagLayout(c,0,0,1,1);
         add(new ButtonPanel(),c);
 
-        c.fill = GridBagConstraints.BOTH;
-        c.weightx = 1;
-        c.weighty=6;
-        c.gridx = 0;
-        c.gridy = 1;
+        setGridBagLayout(c,0,1,1,6);
         add(idPanel, c);
+    }
+
+    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+        c.gridx = gx;
+        c.gridy = gy;
+        c.weightx = wx;
+        c.weighty = wy;
     }
 }

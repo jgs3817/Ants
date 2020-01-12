@@ -37,7 +37,6 @@ public class TalkServlet {
             BufferedReader in = new BufferedReader(new InputStreamReader(myURL.openStream()));
             String inputLine;
             while((inputLine = in.readLine()) != null){
-                //System.out.println(inputLine);
             }
             in.close();
         } catch (IOException e) {
@@ -46,7 +45,6 @@ public class TalkServlet {
     }
 
     public static void postSubmit() throws IOException {
-        //Submit button
         SubmitData submitData = new SubmitData();
         Gson gson = new Gson();
         String jsonString = gson.toJson(submitData);
@@ -83,8 +81,6 @@ public class TalkServlet {
     }
 
     public static void postFB(){
-        //Next or prev button clicked
-        //Database: antData
         HttpURLConnection conn = null;
         try{
             //URL myURL = new URL("http://localhost:8080/AntsServlet/FBpage");
@@ -100,24 +96,16 @@ public class TalkServlet {
             e.printStackTrace();
         }
 
-        //send current videoID and frame to server
         FBData sendFBData = new FBData();
         boolean fb = FBPanel.getFBState();
         int frameID = FBPanel.getFrameID();
+        //System.out.println("Sending frame: " + frameID);
         String videoID = MenuVideo.getVidID();
         FBData.setTempFrameID(frameID);
-        //System.out.println("Frame: " + frameID);
 
         sendFBData.setFB(fb);
         sendFBData.setFrameID();
-        sendFBData.setVideoID(videoID); //servlet need to change filepath
-
-        //System.out.println("FB state:");
-        //System.out.println(sendFBData.getFB());
-        //System.out.println("Frame ID:");
-        //System.out.println(sendFBData.getFrameID());
-        //System.out.println("Vid ID:");
-        //System.out.println(sendFBData.getVideoID());
+        sendFBData.setVideoID(videoID);
 
         Gson sendGson = new Gson();
         String jsonString = sendGson.toJson(sendFBData);
@@ -129,20 +117,21 @@ public class TalkServlet {
             e.printStackTrace();
         }
 
-        //get videoID and frame from server
         try {
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
             String inputLine;
             while((inputLine = bufferedReader.readLine()) != null) {
                 Gson inputGson = new Gson();
                 dataFB = inputGson.fromJson(inputLine, FBData.class);
-                /*System.out.println("Ant data:");
-                System.out.println(dataFB.getAntData());*/
-                //System.out.println("Video ID:");
-                //System.out.println(dataFB.getVideoID());
-                //System.out.println("Frame ID:" + dataFB.getFrameID());
-                //System.out.println("Image Byte:");
-                //System.out.println(Arrays.toString(dataFB.getImageByte()));
+                //System.out.println("Receiving frame: " + dataFB.getFrameID());
+                if(dataFB.getFB()){
+                    int frame = dataFB.getFrameID();
+                    dataFB.setTempFrameID(frame+1);
+                }
+                else{
+                    int frame = dataFB.getFrameID();
+                    dataFB.setTempFrameID(frame-1);
+                }
             }
             bufferedReader.close();
         } catch (IOException e) {
@@ -152,15 +141,11 @@ public class TalkServlet {
     }
 
     public static void postLanding(){
-        System.out.println("postLanding()");
-        //transitioning button
-        //Database: antData, frameID
         String videoID = panels.MenuVideo.getVidID();
         byte[] body = videoID.getBytes(StandardCharsets.UTF_8);
 
         HttpURLConnection conn = null;
         try{
-            //change URL to correct page
             //URL myURL = new URL("http://localhost:8080/AntsServlet/landingpage");
             URL myURL = new URL("http://servletants.herokuapp.com/landingpage");
             conn = null;
@@ -184,18 +169,7 @@ public class TalkServlet {
             String inputLine;
             while((inputLine = bufferedReader.readLine()) != null) {
                 Gson inputGson = new Gson();
-                //System.out.println(inputLine);
-                landingData = inputGson.fromJson(inputLine, data_transfer.LandingData.class);
-                //System.out.println(landingData);
-                //System.out.println("Video ID:");
-                //System.out.println(landingData.getVideoID());
-                //System.out.println("Frame ID:" + landingData.getFrameID());
-                //System.out.println("Image Byte:");
-                //System.out.println(landingData.getImageByte());
-                //System.out.println("Ant Data");
-                //System.out.println(landingData.getAntData());
-                //System.out.println("Overlay Image Byte");
-                //System.out.println(landingData.getOverlayImageByte());
+                landingData = inputGson.fromJson(inputLine, LandingData.class);
             }
             bufferedReader.close();
         } catch (IOException e) {
@@ -204,7 +178,6 @@ public class TalkServlet {
     }
 
     public static void postInit(){
-        //Database: progress bar
         HttpURLConnection conn = null;
         try{
             //URL myURL = new URL("http://localhost:8080/AntsServlet/init");
@@ -218,63 +191,29 @@ public class TalkServlet {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        //System.out.println("Step 0");
-        //get image from server
+
         try {
-            //System.out.println("Step 0.1");
             BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(conn.getInputStream(), "utf-8"));
-            //System.out.println("Step 0.2");
             String inputLine;
-            //System.out.println("Step 0.3");
             while((inputLine = bufferedReader.readLine()) != null) {
-                //System.out.println("Step 0.4");
                 Gson inputGson = new Gson();
-                //System.out.println("Step 0.5");
                 initDataArrayList = inputGson.fromJson(inputLine, InitDataArrayList.class);
-                //System.out.println("Step 1");
-                //System.out.println(initDataArrayList);
 
                 Gson initDataGson = new Gson();
-                //System.out.println("Before getString");
-                //System.out.println("Step 2");
                 String JSonArray = initDataArrayList.getArrayJsonString().get(0);
                 String JSonArray1 = initDataArrayList.getArrayJsonString().get(1);
                 String JSonArray2 = initDataArrayList.getArrayJsonString().get(2);
                 String JSonArray3 = initDataArrayList.getArrayJsonString().get(3);
-                //System.out.println("Step 3");
 
-                //System.out.println(JSonArray);
                 initData1 = initDataGson.fromJson(JSonArray, InitData.class);
                 initData2 = initDataGson.fromJson(JSonArray1, InitData.class);
                 initData3 = initDataGson.fromJson(JSonArray2, InitData.class);
                 initData4 = initDataGson.fromJson(JSonArray3, InitData.class);
-
-                //System.out.println("Prog");
-                //System.out.println(initData1.getProgress());
-                //System.out.println("After getString");
-                //initData2 = initDataGson.fromJson(initDataArrayList.getArrayJsonString().get(1), InitData.class);
-                //initData3 = initDataGson.fromJson(initDataArrayList.getArrayJsonString().get(2), InitData.class);
-                //initData4 = initDataGson.fromJson(initDataArrayList.getArrayJsonString().get(3), InitData.class);
-
-                //System.out.println(initDataArrayList.getArrayJsonString().get(0));
-                //System.out.println("Imagebyte1 postInit:");
-                //System.out.println(initData1.getImageByte());
-
-                //System.out.println("Imagebyte2:");
-                //System.out.println(initData2.getImageByte());
-
-//                System.out.println("Imagebyte3:");
-//                System.out.println(initData3.getImageByte());
-
-  //              System.out.println("Imagebyte4:");
-//                System.out.println(initData4.getImageByte());
             }
             bufferedReader.close();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        //System.out.println("test3");
     }
 
     public static FBData getFBData(){
@@ -282,8 +221,6 @@ public class TalkServlet {
     }
 
     public static InitData getInitData1(){
-        //System.out.println("getInitData1");
-        //System.out.println(initData1);
         return initData1;
     }
 

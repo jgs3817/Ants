@@ -10,8 +10,8 @@ public class ShapeDB {
         list = new ArrayList<Shape>();
     }
 
-    void addCircle(Point pos, Color col, int radius){
-        list.add(new Circle(pos,col,radius));
+    void addCircle(Point pos, Color col, int radius, String id){
+        list.add(new Circle(pos,col,radius,id));
     }
 
     void drawShapes(Graphics g){

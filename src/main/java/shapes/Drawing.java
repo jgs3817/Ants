@@ -7,11 +7,11 @@ public class Drawing extends JPanel {
     private ShapeDB shapeDB = new ShapeDB();
 
     public Drawing(){
-        setPreferredSize(new Dimension(494,271));
+        setPreferredSize(new Dimension(1070,598));
     }
 
-    public void addCircle(Point pos, Color col, int radius){
-        shapeDB.addCircle(pos, col, radius);
+    public void addCircle(Point pos, Color col, int radius, String id){
+        shapeDB.addCircle(pos, col, radius, id);
     }
 
     public void paint(Graphics g){

@@ -3,21 +3,20 @@ package data_transfer;
 import java.util.ArrayList;
 
 public class FBData {
-    private static ArrayList<ArrayList<Integer>> overlayAntData;
+    private ArrayList<ArrayList<Integer>> overlayAntData;
     private String videoID;
     private static int tempFrameID;
     private int frameID;
     private byte[] imageByte;
     private byte[] FBImageByte;
     private boolean fb;
-    private boolean error = false;
     private byte[] overlayImageByte;
 
     public FBData(){
         tempFrameID = 1;
     }
 
-    public static ArrayList<ArrayList<Integer>> getOverlayAntData() {
+    public ArrayList<ArrayList<Integer>> getOverlayAntData() {
         return overlayAntData;
     }
 
@@ -64,10 +63,6 @@ public class FBData {
     public void setFBImageByte(byte[] imageByteInput){
         FBImageByte = imageByteInput;
     }
-
-    public void setError(boolean errorInput){error = errorInput;}
-
-    public boolean getError(){return error;}
 
     public byte [] getOverlayImageByte(){return overlayImageByte;}
 }

@@ -20,8 +20,9 @@ public class ButtonPanel extends JPanel {
     private JButton addButton;
     private JButton minusButton;
     private JButton backButton;
-    private static boolean backFlag;
     private JPanel organiserPanel = new JPanel();
+
+    private static boolean backFlag;
     static IDPanel idPanel = new IDPanel();
     private ArrayList<ArrayList<Integer>> antData;
     private ArrayList<ArrayList<Integer>> overlayAntData;
@@ -31,11 +32,11 @@ public class ButtonPanel extends JPanel {
 
     public ButtonPanel(){
         dataLanding = TalkServlet.getLandingData();
-        System.out.println("Button panel dataLanding");
-        //antData = dataLanding.getAntData();
-        //System.out.println("antData: " + antData);
+        //System.out.println("Button panel dataLanding");
+        //System.out.println("FrameID: " + dataLanding.getFrameID());
+        //System.out.println("VidID: " + dataLanding.getVideoID());
+        //System.out.println("antData: " + dataLanding.getAntData());
 
-        //System.out.println("panels.ButtonPanel constructor called");
         addButton = new JButton("+");
         minusButton = new JButton("-");
         backButton = new JButton("Back");
@@ -60,21 +61,21 @@ public class ButtonPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 count++;
-                JButton btn = new JButton(String.valueOf(count));       //ant button is created
-                btn.addActionListener(new ActionListener() {
+                JButton antButton = new JButton(String.valueOf(count));       //ant button is created
+                antButton.addActionListener(new ActionListener() {
                     //When ant button is clicked, save it as lastButton
                     @Override
                     public void actionPerformed(ActionEvent e) {
-                        if(btn != lastButton){
-                            btn.setBackground(new Color(150,203,255));
+                        if(antButton != lastButton){
+                            antButton.setBackground(new Color(150,203,255));
                             if(lastButton!=null){
                                 lastButton.setBackground(null);
                             }
                         }
-                        lastButton = btn;
+                        lastButton = antButton;
                     }
                 });
-                idPanel.add(btn);
+                idPanel.add(antButton);
                 idPanel.revalidate();
                 idPanel.repaint();
             }
@@ -100,7 +101,6 @@ public class ButtonPanel extends JPanel {
                 backFlag=true;
             }
         });
-
     }
 
     //Function for ID panel object to be accessed in other classes

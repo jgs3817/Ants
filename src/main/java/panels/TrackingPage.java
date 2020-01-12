@@ -16,19 +16,19 @@ public class TrackingPage extends JPanel{
         //System.out.println("panels.TrackingPage constructor called");
         setLayout(new GridBagLayout());
         GridBagConstraints c = new GridBagConstraints();
-
         c.fill = GridBagConstraints.BOTH;
-        c.gridx = 0;
-        c.gridy = 0;
-        c.weightx=1;
-        c.weighty=1;
+
+        setGridBagLayout(c,0,0,1,1);
         add(new ButtonIDContainer(),c);
 
-        c.fill = GridBagConstraints.BOTH;
-        c.gridx = 1;
-        c.gridy = 0;
-        c.weightx=5;
-        c.weighty=1;
+        setGridBagLayout(c,1,0,5,1);
         add(new VideoFramesContainer(),c);
+    }
+
+    public void setGridBagLayout(GridBagConstraints c, int gx, int gy, int wx, int wy){
+        c.gridx = gx;
+        c.gridy = gy;
+        c.weightx = wx;
+        c.weighty = wy;
     }
 }
