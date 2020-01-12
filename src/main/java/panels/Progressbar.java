@@ -17,8 +17,6 @@ public class ProgressBar extends JPanel{
         progressBar.setMaximum(maxframe);
         progressBar.setValue(latestframe);
         progressBar.setStringPainted(true);
-        // Border border = BorderFactory.createTitledBorder("Reading...");
-        // progressBar.setBorder(border);
 
         add(progressBar);
     }
