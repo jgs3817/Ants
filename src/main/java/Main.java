@@ -46,6 +46,9 @@ public class Main {
                 pageHandler.add(new LandingPage());
                 pageHandler.revalidate();
                 pageHandler.repaint();
+                IDPanel idPanel;
+                idPanel = new IDPanel();
+                ButtonPanel.setIDPanel(idPanel);
                 ButtonPanel.setBackFlag(false);
             }
         }

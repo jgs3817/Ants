@@ -9,10 +9,9 @@ the + and - buttons (in panels.ButtonPanel), and the ant buttons (in panels.IDPa
 */
 
 public class ButtonIDContainer extends JPanel {
-    private IDPanel idPanel;
 
     public ButtonIDContainer(){
-        idPanel = (IDPanel) ButtonPanel.getIDPanel();
+        IDPanel idPanel = (IDPanel) ButtonPanel.getIDPanel();
         setSize(250,300);
 
         setLayout(new GridBagLayout());

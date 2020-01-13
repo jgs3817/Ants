@@ -25,15 +25,11 @@ public class ButtonPanel extends JPanel {
 
     private static boolean backFlag;
     static IDPanel idPanel = new IDPanel();
-    private ArrayList<ArrayList<Integer>> antData;
-    private ArrayList<ArrayList<Integer>> overlayAntData;
-    private LandingData dataLanding;
 
     private int count=0;        //tracks the ant ID
 
     public ButtonPanel(){
-        dataLanding = TalkServlet.getLandingData();             //gets the LandingData object from TalkServlet class
-
+        //LandingData dataLanding = TalkServlet.getLandingData();             //gets the LandingData object from TalkServlet class
         addButton = new JButton("+");
         minusButton = new JButton("-");
         backButton = new JButton("Back");
@@ -107,6 +103,10 @@ public class ButtonPanel extends JPanel {
     //Method for ID panel object to be accessed in other classes
     public static JPanel getIDPanel(){
         return idPanel;
+    }
+
+    public static void setIDPanel(IDPanel panel){
+        idPanel = panel;
     }
 
     //Returns the last clicked button
