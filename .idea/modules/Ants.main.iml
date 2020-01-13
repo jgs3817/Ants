@@ -8,6 +8,14 @@
           <root url="file://$MODULE_DIR$/../../src/main/webapp" relative="/" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot" relative="/abbot" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot/editor/icons" relative="/abbot/editor/icons" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot/finder" relative="/abbot/finder" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot/finder/matchers" relative="/abbot/finder/matchers" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot/i18n" relative="/abbot/i18n" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot/script" relative="/abbot/script" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot/tester" relative="/abbot/tester" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot/tester/keymaps" relative="/abbot/tester/keymaps" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/abbot/util" relative="/abbot/util" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/abbot-1.4.0.jar_e732738422438cff4eb1239e3e47d9d3/junit/extensions/abbot" relative="/junit/extensions/abbot" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/gson-2.7.jar_1f64285cb80b7c64032ed85af9a90fec/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/gson-2.7.jar_1f64285cb80b7c64032ed85af9a90fec/com" relative="/com" />
@@ -15,7 +23,40 @@
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.servlet-api-3.1.0.jar_784d7c0af51669c8bab3b8ad1eaa47b4/javax" relative="/javax" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.websocket-api-1.0.jar_151af79ddbd2cc24c6fb4a11a7eb69d3/META-INF" relative="/META-INF" />
           <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/javax.websocket-api-1.0.jar_151af79ddbd2cc24c6fb4a11a7eb69d3/javax" relative="/javax" />
-          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d" relative="/" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d" relative="" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/META-INF" relative="/META-INF" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/junit" relative="/junit" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/junit/extensions" relative="/junit/extensions" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/junit/framework" relative="/junit/framework" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/junit/runner" relative="/junit/runner" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/junit/textui" relative="/junit/textui" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org" relative="/org" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/hamcrest" relative="/org/hamcrest" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/hamcrest/core" relative="/org/hamcrest/core" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/hamcrest/internal" relative="/org/hamcrest/internal" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit" relative="/org/junit" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/experimental" relative="/org/junit/experimental" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/experimental/categories" relative="/org/junit/experimental/categories" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/experimental/max" relative="/org/junit/experimental/max" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/experimental/results" relative="/org/junit/experimental/results" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/experimental/runners" relative="/org/junit/experimental/runners" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/experimental/theories" relative="/org/junit/experimental/theories" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/experimental/theories/internal" relative="/org/junit/experimental/theories/internal" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/experimental/theories/suppliers" relative="/org/junit/experimental/theories/suppliers" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/internal" relative="/org/junit/internal" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/internal/builders" relative="/org/junit/internal/builders" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/internal/matchers" relative="/org/junit/internal/matchers" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/internal/requests" relative="/org/junit/internal/requests" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/internal/runners" relative="/org/junit/internal/runners" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/internal/runners/model" relative="/org/junit/internal/runners/model" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/internal/runners/statements" relative="/org/junit/internal/runners/statements" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/matchers" relative="/org/junit/matchers" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/rules" relative="/org/junit/rules" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/runner" relative="/org/junit/runner" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/runner/manipulation" relative="/org/junit/runner/manipulation" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/runner/notification" relative="/org/junit/runner/notification" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/runners" relative="/org/junit/runners" />
+          <root url="file://$MODULE_DIR$/../../build/tmp/expandedArchives/junit-4.8.2.jar_bad832c3a51fc696db1d221dfeb8677d/org/junit/runners/model" relative="/org/junit/runners/model" />
         </webroots>
       </configuration>
     </facet>
